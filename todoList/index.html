@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+          integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+          crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
+    <script defer src="todoList.js"></script>
+</head>
+<body>
+<header>
+    <div class = "ToDO" style="color: white">
+        <h1>
+            TODOLIST
+        </h1>
+        <form>
+            <input type="text" placeholder="Добавь новую задачу" class="todo_input" style="color: #fa81c0;" />
+            <button class="todo_button" type="submit">
+                Добавить
+            </button>
+            <div class="select">
+                <select name="todos" class="filter_todo">
+                    <option value="completed">Активные</option>
+                    <option value="uncompleted">Завершенные</option>
+                </select>
+            </div>
+        </form>
+        <div class="todo_container">
+            <ul class="todo_list"></ul>
+        </div>
+        </div>
+</header>
+
+</body>
+</html>
