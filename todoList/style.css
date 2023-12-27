@@ -16,21 +16,21 @@ header,form{
     justify-content: center;
     align-items: center;
 }
-form input, form button{
+form .todo_input, form .todo_button{
     padding: 0.4rem;
     border: none;
     font-size: 1.6rem;
     background: white;
 }
-.todo_input::placeholder {color: #fdcee6
+form .todo_input::placeholder{color: #fdcee6
 }
-form button{
+form .todo_button{
     color: #fa81c0;
     background: white;
     cursor: pointer;
     transition: all 0.3s ease;
 }
-form button:hover{
+form .todo_button:hover{
     background: #c4dbf8;
 }
 select{
@@ -40,18 +40,18 @@ select{
     outline: none;
     border: none;
 }
-.select{
+.select-container{
     margin: 1rem;
     position: relative;
     overflow: hidden;
 }
-select{
+.select-container select {
     color: #fa81c0;
     width: 9rem;
     cursor: pointer;
     padding: 0.8rem;
 }
-.select::after{
+.select-container::after{
     content: "\25bc";
     position: absolute;
     color: #fa81c0;
