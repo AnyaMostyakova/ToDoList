@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -11,14 +12,15 @@
     <link rel="stylesheet" href="style.css">
     <script defer src="todoList.js"></script>
 </head>
+
 <body>
 <header>
-    <div class = "ToDO" style="color: white">
-        <h1>
+    <div class = "ToDO">
+        <h1 class="todo_title">
             TODOLIST
         </h1>
-        <form>
-            <input type="text" placeholder="Добавь новую задачу" class="todo_input" style="color: #fa81c0;" />
+        <form class="todo_form">
+            <input type="text" placeholder="Добавь новую задачу" class="todo_input" />
             <button class="todo_button" type="submit">
                 Добавить
             </button>
@@ -32,8 +34,8 @@
         <div class="todo_container">
             <ul class="todo_list"></ul>
         </div>
-        </div>
+    </div>
 </header>
-
 </body>
+
 </html>
