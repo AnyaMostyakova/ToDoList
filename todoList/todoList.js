@@ -5,11 +5,11 @@ const filterOption = document.querySelector('.filter_todo');
 
 todoButton.addEventListener("click", addTodo)
 todoList.addEventListener("click", deleteCheck)
-filterOption.addEventListener("click", filterTodo)
+filterOption.addEventListener("change", filterTodo)
 function addTodo(event) {
     event.preventDefault();
-
-    if(todoInput.value.trim() === ""){
+    const todoText = todoInput.value.trim();
+    if (todoText === "") {
         alert("Вы вводите пустую строку!");
         return;
     }
@@ -17,64 +17,56 @@ function addTodo(event) {
     todoDiv.classList.add('todo');
     //todo LI
     const newTodo = document.createElement('li');
-    newTodo.innerText = todoInput.value;
+    newTodo.innerText = todoText;
     newTodo.classList.add('todo_item');
     todoDiv.appendChild(newTodo);
-    if(todoInput.value === ""){
-        return null
-    }
     const completedButton = document.createElement('button');
     completedButton.innerHTML = '<i class="fas fa-check"></i>';
-    completedButton.classList.add('complete_btn')
+    completedButton.classList.add('complete_btn');
     todoDiv.appendChild(completedButton);
-
     const deleteButton = document.createElement('button');
     deleteButton.innerHTML = '<i class="fas fa-trash"></i>';
-    deleteButton.classList.add('delete_btn')
+    deleteButton.classList.add('delete_btn');
     todoDiv.appendChild(deleteButton);
 
     todoList.appendChild(todoDiv);
-
-    todoInput.value = ""
+    todoInput.value = "";
 }
-
 function deleteCheck(e) {
     const item = e.target;
-    //DELETE ITEM
-    if (item.classList[0] === "delete_btn") {
+    if (item.classList.contains("delete_btn")) {
         const todo = item.parentElement;
-        //ANIMATION TRANSITION
-        todo.classList.add("fall")
+        todo.classList.add("fall");
         todo.addEventListener('transitionend', function () {
-            todo.remove()
-        })
-    }
-    if (item.classList[0] === "complete_btn") {
+            todo.remove();
+        });
+    } else if (item.classList.contains("complete_btn")) {
         const todo = item.parentElement;
-        todo.classList.toggle("completedItem")
+        todo.classList.toggle("completedItem");
     }
 }
-function filterTodo(e) {
-    const todos = todoList.childNodes;
-    for(let i = 1; i<todos.length; i++ ){
-        switch (e.target.value) {
-            case "all":
-                todos[i].style.display = "flex";
-                break;
+function filterTodo() {
+    const todos = todoList.children;
+
+    for (let i = 0; i < todos.length; i++) {
+        const todo = todos[i];
+        switch (filterOption.value) {
             case "completed":
-                if (todos[i].classList.contains('completedItem')) {
-                    todos[i].style.display = "flex";
+                if (todo.classList.contains("completedItem")) {
+                    todo.style.display = "flex";
                 } else {
-                    todos[i].style.display = "none";
+                    todo.style.display = "none";
                 }
                 break;
             case "uncompleted":
-                if (!todos[i].classList.contains('completedItem')) {
-                    todos[i].style.display = "flex";
+                if (!todo.classList.contains("completedItem")) {
+                    todo.style.display = "flex";
                 } else {
-                    todos[i].style.display = "none";
+                    todo.style.display = "none";
                 }
                 break;
+            default:
+                todo.style.display = "flex";
         }
     }
 }
